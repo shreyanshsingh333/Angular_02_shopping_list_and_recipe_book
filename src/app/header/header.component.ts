@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-  a = 'a';
+  @Output() recipesOrShoppingSelector = new EventEmitter<string>();
+  onComponentSelected(feature: string) {
+    this.recipesOrShoppingSelector.emit(feature);
+  }
 }
